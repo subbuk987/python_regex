@@ -124,7 +124,7 @@ class User:
                   "- At least 1 digit\n"
                   "- At least 1 special character")
 
-    def create(self):
+    def register(self):
         """
         Runs the full user registration process.
         Prompts the user to input all necessary fields with validation.
@@ -139,5 +139,5 @@ class User:
 
 if __name__ == "__main__":
     user = User()
-    user.create()
+    user.register()
     print(user)
