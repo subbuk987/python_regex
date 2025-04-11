@@ -1,6 +1,5 @@
 # Custom Exceptions
 
 class FormatError(Exception):
-    def __init__(self):
-        Exception.__init__(self)
-        self.msg = "Format Error : "
+    def __init__(self, message):
+        Exception.__init__(self,f"Format Error : {message}")

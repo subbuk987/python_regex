@@ -14,22 +14,23 @@ class User:
         self._mobile_number = None
         self._password = None
 
-
-    def accept_first_name(self, first_name):
-        if not self._NAME_PATTERN.fullmatch(first_name):
-            print(
-                FormatError().msg,
-                "First Name Should Start with a Capital Letter "
-                "and be at least 3 characters."
-            )
-        else:
-            self.first_name = first_name
+    def _accept_name(self, field):
+        while True:
+            name = input(f"Enter {field}: ").strip()
+            if self._NAME_PATTERN.fullmatch(name):
+                return name
+            else:
+                print(
+                    f"{field} Should start with a Capital Letter and "
+                    f"contain at least 3 characters"
+                )
 
     def create(self):
-        first_name = input("Enter First Name: ").strip()
-        self.accept_first_name(first_name)
+        self.first_name = self._accept_name("First Name")
+        self.last_name = self._accept_name("Last Name")
+
 
 if __name__ == "__main__":
     user = User()
     user.create()
-    print(user.first_name)
+
