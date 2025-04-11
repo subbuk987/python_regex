@@ -6,9 +6,11 @@ from exceptions import FormatError
 
 class User:
     _NAME_PATTERN = re.compile(r'\b[A-Z][A-Za-z]{2,}\b')
-    _EMAIL_PATTERN = re.compile(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b')
+    _EMAIL_PATTERN = re.compile(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.'
+                                r'[A-Za-z]{2,}\b')
     _MOBILE_PATTERN = re.compile(r'\b[1-9][0-9]{0,2}\s[0-9]{10}\b')
-    _PASSWORD_PATTERN = re.compile(r'^.{8,20}$') # Minimum 8 Characters
+    _PASSWORD_PATTERN = re.compile(
+        r'^(?=.*[A-Z]).{8,20}$') # Minimum 8 Characters and UpperCase
 
     def __init__(self):
         self.first_name = None
@@ -50,7 +52,8 @@ class User:
             if self._PASSWORD_PATTERN.fullmatch(password):
                 return password
             else:
-                print("Password Should be At Least 8 Characters!!!")
+                print("Password Should be At Least 8 Characters and Contain"
+                      "At least 1 UpperCase Letter!!!")
 
     def create(self):
         self.first_name = self._accept_name("First Name")
