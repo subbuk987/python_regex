@@ -10,7 +10,7 @@ class User:
                                 r'[A-Za-z]{2,}\b')
     _MOBILE_PATTERN = re.compile(r'\b[1-9][0-9]{0,2}\s[0-9]{10}\b')
     _PASSWORD_PATTERN = re.compile(
-        r'^(?=.*[A-Z]).{8,20}$') # Minimum 8 Characters and UpperCase
+        r'^(?=.*[A-Z])(?=.*[0-9]).{8,20}$') # 8 Characters, Upper and Numeric
 
     def __init__(self):
         self.first_name = None
@@ -52,8 +52,10 @@ class User:
             if self._PASSWORD_PATTERN.fullmatch(password):
                 return password
             else:
-                print("Password Should be At Least 8 Characters and Contain"
-                      "At least 1 UpperCase Letter!!!")
+                print("Password Rules :\n"
+                      "Should be At Least 8 Characters!!!\n"
+                      "Should Contain At least 1 UpperCase Letter!!!\n"
+                      "Should Contain At least 1 Numeric Character!!!")
 
     def create(self):
         self.first_name = self._accept_name("First Name")
