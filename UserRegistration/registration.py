@@ -136,8 +136,36 @@ class User:
         self._password = self._accept_password()
         print("User Registration Successful!")
 
+    def check_email(self,email):
+        """
+        Used for Checking email outside the class.
+        Don't be used in the real Module for abstraction.
+        :param email: Email to be checked.
+        :return: 1 if passed else -1
+        """
+        if self._EMAIL_PATTERN.fullmatch(email):
+            return 1
+        else:
+            return -1
+
+
 
 if __name__ == "__main__":
     user = User()
-    user.register()
-    print(user)
+    email_list = [
+        "abc@yahoo.com",
+        "abc-100@yahoo.com",
+        "abc.100@yahoo.com",
+        "abc111@abc.com",
+        "abc-100@abc.net",
+        "abc.100@abc.com.au",
+        "abc@1.com",
+        "abc@gmail.com.com",
+        "abc+100@gmail.com"
+    ]
+    for email_id in email_list:
+        if user.check_email(email_id) == 1:
+            print("Email is Valid")
+        else:
+            print("Email is Not Valid")
+
