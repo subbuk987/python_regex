@@ -1,6 +1,6 @@
-# User Registration Using Regex Validation
+# Python User Registration with Regex Validation
 
-A Python-based user registration system that utilizes regular expressions to validate user inputs such as names, email addresses, mobile numbers, and passwords. This project serves as a practical example of input validation in Python.
+A Python-based user registration system that employs regular expressions to validate user inputs such as names, email addresses, mobile numbers, and passwords. This project serves as a practical example of input validation in Python.
 
 ## Features
 
@@ -18,46 +18,50 @@ A Python-based user registration system that utilizes regular expressions to val
 
 ### Installation
 
-1. Clone the repository:
+1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/subbuk987/python_regex.git
-   cd python_regex
+   git clone https://github.com/subbuk987/UserRegistrationProblem.git
+   cd UserRegistrationProblem
    ```
 
-2. (Optional) Create and activate a virtual environment:
+2. **(Optional) Create and activate a virtual environment:**
 
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
-3. Install any dependencies (if applicable):
+3. **Install required packages:**
 
    ```bash
    pip install -r requirements.txt
    ```
 
-   *Note: If `requirements.txt` is available only for test branch.*
+## Usage
 
-### Usage
-
-Run the application using the following command:
+Run the application using:
 
 ```bash
 python app.py
 ```
 
-Follow the on-screen prompts to enter your registration details. The application will validate each input and provide feedback accordingly.
+Follow the on-screen prompts to enter user details. The application will validate each input and provide feedback accordingly.
 
 ## Project Structure
 
-```
-python_regex/
-├── UserRegistration/
-│   └── registration.py  # Contains the User class and validation logic
-├── app.py               # Entry point for the application
-├── .gitignore           # Specifies files and directories to be ignored by Git
-└── README.md            # Project documentation
+- `app.py`: Main application script that handles user interaction.
+- `UserRegistration/registration.py`: Contains the `User` class with validation methods.
+- `tests/`: Directory containing test cases for the application.
+- `test_data.json`: JSON file containing test data for validation.
+- `log_pass.json` & `log_fail.json`: Logs of successful and failed validations, respectively.
+
+## Testing
+
+To run the test suite:
+
+```bash
+pytest
 ```
 
+Ensure that you have the `pytest` framework installed. The tests will validate various user input scenarios and log the outcomes.
