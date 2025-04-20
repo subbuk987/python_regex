@@ -136,6 +136,7 @@ class User:
         self._password = self._accept_password()
         print("User Registration Successful!")
 
+
     def check_email(self,email):
         """
         Used for Checking email outside the class.
@@ -148,6 +149,22 @@ class User:
         else:
             return -1
 
+         
+    def validate_all_fields(self, first_name, last_name, email, mobile,
+                            password):
+        """
+        Validates all user input fields at once.
+
+        Returns:
+            bool: True if all fields are valid, False otherwise.
+        """
+        if (self._NAME_PATTERN.fullmatch(first_name) and
+                self._NAME_PATTERN.fullmatch(last_name) and
+                self._EMAIL_PATTERN.fullmatch(email) and
+                self._MOBILE_PATTERN.fullmatch(mobile) and
+                self._PASSWORD_PATTERN.fullmatch(password)):
+            return True
+        return False
 
 
 if __name__ == "__main__":
